@@ -1,4 +1,4 @@
-from figure2D import Figure2D
+from .figure2D import Figure2D
 
 class Square(Figure2D):
   def __init__(self, side: float):

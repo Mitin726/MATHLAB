@@ -1,4 +1,4 @@
-from figure3D import Figure3D
+from .figure3D import Figure3D
 import math
 
 class Sphere(Figure3D):

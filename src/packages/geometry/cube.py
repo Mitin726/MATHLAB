@@ -1,5 +1,4 @@
-from figure3D import Figure3D
-import math
+from .figure3D import Figure3D
 
 class Cube(Figure3D):
     def __init__(self, side: float):

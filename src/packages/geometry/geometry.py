@@ -1,56 +1,54 @@
-from circle import Circle
-from cube import Cube
-from sphere import Sphere
-from square import Square
+from .circle import Circle
+from .cube import Cube
+from .sphere import Sphere
+from .square import Square
+from factories.geometry_factory import GeometryFactory
 
-figures = []
-exit = False
+created_figures = []
+FIGURES = {
+    1: ("radius", Circle),
+    2: ("side", Square),
+    3: ("radius", Sphere),
+    4: ("side", Cube)
+}
 
-def create_figure():
-    while exit == False:
-        option = int(input(
-            """
-            Choose the figure you want to create:
-            =========
-            Figures 2D:
-            1. Circle
-            2. Square
-            =========
-            Figure 3D:
-            3. Sphere
-            4. Square
-            =========
-            5. Print Figures
-            6. Back
-            """
-            ))
+def display_options() -> int:
+    while True:
+        try: 
+            option = int(input(
+                """
+                Choose the figure you want to create:
+                ================
+                1. Circle
+                2. Square
+                3. Sphere
+                4. Cube
+                ================
+                5. Print Figures
+                6. Exit
+                ================
+                """
+                ))
+            return option
+        except ValueError:
+            print("Write a valid integer.")
         
-        if option == 1:
-            radius = int(input("Write the circle's radius: "))
-            circle = Circle(radius)
-            print(circle.info())
-            figures.append(circle)
-        if option == 2:
-                side = int(input("Write the square's side: "))
-                square = Square(side)
-                print(square.info())
-                figures.append(square)
-        if option == 3:
-                radius = int(input("Write the sphere's radius: "))
-                sphere = Sphere(radius)
-                print(sphere.info())
-                figures.append(sphere)
-        if option == 4:
-                side = int(input("Write the cube's side: "))
-                cube = cube(side)
-                print(cube.info())
-                figures.append(cube)
-        elif option == 5:
-            for i in range(len(figures)):
-                print(figures[i].__str__())
+def run_geometry_module():
+    running = True
+    while running:
+        option = display_options()
+        if option == 5:
+            for figure in created_figures:
+                print(figure)
+            continue
         elif option == 6:
-            exit = True
-        else:
-            print("Write a correct option...")
-        
-create_figure()
+            print("bye bye...")
+            break
+        elif option not in FIGURES:
+            print("Write a Valid Option")
+            continue
+        label, figure_option = FIGURES[option]
+        value = float(input(f"Write the {label}: "))
+        figure = GeometryFactory.create(figure_option, value)
+        print(figure.info())
+        created_figures.append(figure)

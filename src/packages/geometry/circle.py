@@ -1,4 +1,4 @@
-from figure2D import Figure2D
+from .figure2D import Figure2D
 import math
 
 class Circle(Figure2D):
