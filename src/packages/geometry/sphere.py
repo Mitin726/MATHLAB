@@ -15,7 +15,7 @@ class Sphere(Figure3D):
         return 4 * math.pi * self.radius**2
     
     def __str__(self):
-        return f"Sphere\nRadius: {self.radius}"
+        return f"Sphere(radius: {self.radius})"
     
     def info(self):
         return f"""

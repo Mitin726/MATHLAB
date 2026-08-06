@@ -14,7 +14,7 @@ class Square(Figure2D):
     return self.side * 4
   
   def __str__(self) -> str:
-    return f"Square\nSide: {self.side}"
+    return f"Square(side: {self.side})"
   
   def info(self):
     return f"""

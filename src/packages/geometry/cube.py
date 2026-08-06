@@ -14,7 +14,7 @@ class Cube(Figure3D):
         return (self.side**2) * 6
     
     def __str__(self):
-        return f"Cube\nside: {self.side}"
+        return f"Cube(side: {self.side})"
     
     def info(self):
         return f"""

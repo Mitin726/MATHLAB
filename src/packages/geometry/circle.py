@@ -15,7 +15,7 @@ class Circle(Figure2D):
     return 2 * math.pi * self.radius
   
   def __str__(self) -> str:
-    return f"Circle\nRadius: {self.radius}"
+    return f"Circle(Radius: {self.radius})"
   
   def info(self):
     return f"""
