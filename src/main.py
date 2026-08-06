@@ -1,3 +1,4 @@
-from packages.geometry.geometry import run_geometry_module
+from packages.geometry.geometry import GeometryModule
 #Test
-run_geometry_module()
+geometryModule = GeometryModule()
+geometryModule.run()
