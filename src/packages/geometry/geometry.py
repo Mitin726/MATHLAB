@@ -38,7 +38,7 @@ class GeometryModule():
                 return option
             except ValueError:
                 print("Write a valid integer.")
-            
+     
     def run(self):
         running = True
         while running:
